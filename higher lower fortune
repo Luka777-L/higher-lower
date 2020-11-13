@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>თამაში ფორტუნა</title>
+		<style>
+		img
+		  {
+		    width: 100px;
+		  }
+		</style>
+	</head>
+	
+	<body>
+	
+	<img src="deck/blank.gif" >
+	<img src="deck/blank.gif" >
+	<br>
+	<button id="btn" onclick="gamotana_da_gaTiSva(0);">გამოცვლა</button>
+	<button id="maRali" onclick="maRali();">მაღალი</button>
+	<button id="dabali" onclick="dabali();">დაბალი</button>
+	<p id="Sedegi"></p>
+	<p id="temp"></p>
+	<script>
+		var kartebi = ["6a","6g","6k","6j"
+		              ,"7a","7g","7k","7j"
+					  ,"8a","8g","8k","8j"
+					  ,"9a","9g","9k","9j"
+					  ,"10a","10g","10k","10j"
+					  ,"va","vg","vk","vj"
+					  ,"da","dg","dk","dj"
+					  ,"ka","kg","kk","kj"
+					  ,"ta","tg","tk","tj"];
+		
+		/*document.images[0].src = "deck/tg.gif";
+		var kartis_nomeri = Math.floor(Math.random()*36);
+		alert(kartis_nomeri);*/
+		var kartis_nomeri = Math.floor(Math.random()*36);
+		document.images[0].src = "deck/" + kartebi[kartis_nomeri] + ".gif";
+		
+		var pirveli_kartis_N = kartis_nomeri;
+
+		function gamotana_da_gaTiSva(I)
+		  {
+		    var kartis_nomeri = Math.floor(Math.random()*36);
+		    document.images[0].src = "deck/" + kartebi[kartis_nomeri] + ".gif";
+			document.getElementById("btn").disabled = true;  //  ღილაკის გათიშვა
+			pirveli_kartis_N = kartis_nomeri;
+		  }
+		function maRali()
+		  {
+		    var kartis_nomeri_M = Math.floor(Math.random()*36);
+		    document.images[1].src = "deck/" + kartebi[kartis_nomeri_M] + ".gif";
+			/*document.getElementById("temp").innerHTML = "კარტის ნომერი მაღალი = " + kartis_nomeri_M 
+			                                          + " პირველი კარტის ნომერი = " + pirveli_kartis_N;**/
+			if(kartis_nomeri_M > pirveli_kartis_N)
+			  {
+			    document.getElementById("Sedegi").innerHTML = "არის მაღალი. თქვენ მოიგეთ!!!";
+			  }
+			else
+			  {
+			    document.getElementById("Sedegi").innerHTML = "არ არის მაღალი. თქვენ წააგეთ!!!";
+			  }
+			document.getElementById("btn").disabled    = true;
+			document.getElementById("maRali").disabled = true;
+			document.getElementById("dabali").disabled = true;
+		  }
+		function dabali()
+		  {
+		    var kartis_nomeri_D = Math.floor(Math.random()*36);
+		    document.images[1].src = "deck/" + kartebi[kartis_nomeri_D] + ".gif";
+			/*document.getElementById("temp").innerHTML = "კარტის ნომერი დაბალი = " + kartis_nomeri_M 
+			                                          + " პირველი კარტის ნომერი = " + pirveli_kartis_N;**/
+			if(kartis_nomeri_D < pirveli_kartis_N)
+			  {
+			    document.getElementById("Sedegi").innerHTML = "არის დაბალი. თქვენ მოიგეთ!!!";
+			  }
+			else
+			  {
+			    document.getElementById("Sedegi").innerHTML = "არ არის დაბალი. თქვენ წააგეთ!!!";
+			  }
+			document.getElementById("btn").disabled    = true;
+			document.getElementById("maRali").disabled = true;
+			document.getElementById("dabali").disabled = true;
+		  }  
+	</script> 
+	</body>
+</html>
