@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>თამაში პასეანსი</title>
+		<style>
+		img
+		  {
+		    width: 100px;
+		  }
+		</style>
+	</head>
+	
+	<body>
+	<img src="deck/blank.gif" onclick="dawkapeba(0);" onmouseover="Tavze_dadgoma(0);" onmouseout="gamosvla(0);">
+	<img src="deck/blank.gif" onclick="dawkapeba(1);" onmouseover="Tavze_dadgoma(1);" onmouseout="gamosvla(1);">
+	<img src="deck/blank.gif" onclick="dawkapeba(2);" onmouseover="Tavze_dadgoma(2);" onmouseout="gamosvla(2);">
+	<script>
+		var kartebi = ["6a","6g","6k","6j"
+		              ,"7a","7g","7k","7j"
+					  ,"8a","8g","8k","8j"
+					  ,"9a","9g","9k","9j"
+					  ,"10a","10g","10k","10j"
+					  ,"va","vg","vk","vj"
+					  ,"da","dg","dk","dj"
+					  ,"ka","kg","kk","kj"
+					  ,"ta","tg","tk","tj"];
+		
+		/*document.images[0].src = "deck/tg.gif";
+		var kartis_nomeri = Math.floor(Math.random()*36);
+		alert(kartis_nomeri);*/
+		
+		function dawkapeba(N)
+		  {
+		    var kartis_nomeri = Math.floor(Math.random()*36);
+			document.images[N].src = "deck/" + kartebi[kartis_nomeri] + ".gif";
+		  }
+		function Tavze_dadgoma(N)
+		  {
+		    var kartis_nomeri = Math.floor(Math.random()*36);
+			document.images[N].src = "deck/" + kartebi[kartis_nomeri] + ".gif";
+		  }
+		function gamosvla(N)
+		  {
+		    document.images[N].src = "deck/blank.gif";
+		  }
+	</script> 
+	</body>
+</html>
